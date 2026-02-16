@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "SnapDoc",
+    "version": "1.1",
+    "description": "Premium AI Sidebar with Auto-Tech Detection & Documentation Guides",
+    "permissions": [
+        "sidePanel",
+        "tabs",
+        "activeTab",
+        "storage"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "side_panel": {
+        "default_path": "index.html"
+    },
+    "action": {
+        "default_title": "Open SnapDoc"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.google.com/*",
+                "*://*.bing.com/*",
+                "*://*.github.com/*"
+            ],
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+}
